@@ -1,22 +1,22 @@
 import openai
 
-# Set your OpenAI API key here
-openai.api_key = 'your-api-key'
+
+openai.api_key = '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'
 
 def get_answer_from_chatgpt(question):
     try:
-        # Make a request to OpenAI's GPT-3 model
+        
         response = openai.Completion.create(
-            engine="text-davinci-003",  # Use the latest engine or specific engine name
+            engine="text-davinci-003",  
             prompt=question,
             max_tokens=150
         )
-        # Extract and return the response text
+        
         return response.choices[0].text.strip()
     except Exception as e:
         return f"Error: {e}"
 
-# Main loop to interact with the user
+
 while True:
     user_input = input("Ask a question (or type 'exit' to quit): ")
     if user_input.lower() == 'exit':
